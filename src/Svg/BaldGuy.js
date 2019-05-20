@@ -1,9 +1,8 @@
 import React from 'react';
-function LunchLady() {
+function BaldGuy() {
   return (
     <div>
-      <svg style={{zIndex: 4}} className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
-        <g style={{zIndex: 100000000}} className="arms" clipPath="url(#armMask)">
+      <svg style={{zIndex: 5}} className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200"><g style={{zIndex: 100000000}} className="arms" clipPath="url(#armMask)">
           <g className="armL">
             <path fill="#ffcb99" stroke="#3a5e77" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit={10} strokeWidth="2.5" d="M121.3 97.4L111 58.7l38.8-10.4 20 36.1z" />
             <path fill="#ffcb99" stroke="#3a5e77" strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit={10} strokeWidth="2.5" d="M134.4 52.5l19.3-5.2c2.7-.7 5.4.9 6.1 3.5.7 2.7-.9 5.4-3.5 6.1L146 59.7M160.8 76.5l19.4-5.2c2.7-.7 5.4.9 6.1 3.5.7 2.7-.9 5.4-3.5 6.1l-18.3 4.9M158.3 66.8l23.1-6.2c2.7-.7 5.4.9 6.1 3.5.7 2.7-.9 5.4-3.5 6.1l-23.1 6.2M150.9 58.4l26-7c2.7-.7 5.4.9 6.1 3.5.7 2.7-.9 5.4-3.5 6.1l-21.3 5.7" />
@@ -16,31 +15,6 @@ function LunchLady() {
             <path fill="#f70413" d="M207.9 74.7l-2.2-.6c-1.1-.3-2.2.3-2.4 1.4-.3 1.1.3 2.2 1.4 2.4l2.2.6 1-3.8zM206.7 64l-2.2-.6c-1.1-.3-2.2.3-2.4 1.4-.3 1.1.3 2.2 1.4 2.4l2.2.6 1-3.8zM211.2 54.8l-2.2-.6c-1.1-.3-2.2.3-2.4 1.4-.3 1.1.3 2.2 1.4 2.4l2.2.6 1-3.8zM234.6 49.4l-2.2-.6c-1.1-.3-2.2.3-2.4 1.4-.3 1.1.3 2.2 1.4 2.4l2.2.6 1-3.8z" />
             <path fill="#fff" stroke="#3a5e77" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M263.3 96.7c41.4 14.9 84.1 30.7 108.2 35.5l14-52.3C352 70 313.6 63.5 273.6 58.1" />
           </g>				
-        </g>
-      </svg>
-      <svg style={{zIndex: 2}} className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 180">
-        <title>hair-net</title>
-        <desc>Created with Sketch.</desc>
-        <defs>
-          <filter x="-15.9%" y="-30.0%" width="136.7%" height="162.5%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx={0} dy={2} in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feGaussianBlur stdDeviation={2} in="shadowOffsetOuter1" result="shadowBlurOuter1" />
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1" />
-            <feMerge>
-              <feMergeNode in="shadowMatrixOuter1" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <g id="Page-1" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-          <g id="hair-net" transform="translate(35.000000, 22.000000)" stroke="#000000">
-            <g id="inner-net" filter="url(#filter-1)" transform="translate(3.000000, 0.000000)">
-              <path d="M81.8154541,29.0234746 L77.1016228,38.9951428 L81.8154541,29.0234746 Z M76.8285167,19.0218215 L72.1056877,33.9949784 L76.8285167,19.0218215 Z M66.9,10 L59.5,28.0436431 L66.9,10 Z M55.9285714,4.0862069 L52.5,24.0923077 L55.9285714,4.0862069 Z M42.5278151,0.087628866 L42.5278151,19.0218215 L42.5278151,0.087628866 Z M29.0909091,0.087628866 L32.5,22.0923077 L29.0909091,0.087628866 Z M16,8 L21.5,28.0436431 L16,8 Z M6,19.0218215 L12.5,36.5 L6,19.0218215 Z M0,28.0436431 L5,40 L0,28.0436431 Z" id="net-stripes" />
-            </g>
-            <path d="" id="Path-4" />
-            <path d="M6.07456751,42.4964716 C7.97700872,41.4402757 26.5916448,21.0224513 45.5278151,21 C64.4639855,20.9775487 80.6449021,41.3385096 82.3987813,42.4059791 C84.1526605,43.4734487 85.932961,45.3376882 87.9776537,42.4964716 C89.3407821,40.6023273 89.3407821,37.9881098 87.9776537,34.6538193 C86.5361873,27.8846064 82.960322,21.2392378 77.2500579,14.7177134 C66.3434584,2.26160761 53.3305262,0.087628866 42.7996728,0.087628866 C31.9884985,0.087628866 18.2386193,5.02273118 8,17.5456592 C5.56646394,20.5221344 3.02754236,26.2248545 0.383235266,34.6538193 C-0.127745089,39.1781236 -0.127745089,41.792341 0.383235266,42.4964716 C1.1497058,43.5526676 4.17212629,43.5526676 6.07456751,42.4964716 Z" id="Path-5" strokeWidth={4} />
-            <path d="M2,41 C16.3435662,19 30.6815508,8 45.0139539,8 C59.3463569,8 73.675039,19 88,41" id="Path-6" strokeWidth={2} />
-          </g>
         </g>
       </svg>
       <svg className="mySVG" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -60,9 +34,9 @@ function LunchLady() {
         <g id="Page-1" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
           <g id="shirt-collar" transform="translate(6.000000, 22.000000)" fillRule="nonzero">
             <path d="M187.3,113.9 C181.5,105.5 171.8,100 160.8,100 L145,100 L145,50 C145,22.4 122.6,0 95,0 C67.4,0 45,22.4 45,50 L45,100 L26.1,100 C15.5,100 6.1,105.1 0.3,113" id="Path" stroke="#3A5E77" strokeWidth="2.5" fill="#FFCB99" strokeLinecap="round" />
-            <path d="M37,161 L70.440215,137.422975 L44.7,101 L25.8,101 C15.2,101 5.8,106.1 0,114 C3.70425746,122.954433 8.7232584,131.454433 15.0570028,139.5 C21.3907473,147.545567 28.7050796,154.712234 37,161 Z" id="Path" strokeOpacity={0} stroke="#3A5E77" strokeWidth="2.5" fill="#6ac6f2" strokeLinecap="round" />
-            <path d="M154,161 L187.440215,137.422975 L161.7,101 L142.8,101 C132.2,101 122.8,106.1 117,114 C120.704257,122.954433 125.723258,131.454433 132.057003,139.5 C138.390747,147.545567 145.70508,154.712234 154,161 Z" id="Path" strokeOpacity={0} stroke="#3A5E77" strokeWidth="2.5" fill="#6ac6f2" strokeLinecap="round" transform="translate(152.220108, 131.000000) scale(-1, 1) translate(-152.220108, -131.000000) " />
-            <path d="M94,131 C69.8724584,131 48.6950092,142.965596 37,160.860092 C53.4362292,171.639908 73.0332717,178 94,178 C114.966728,178 134.563771,171.747706 151,160.860092 C139.304991,142.965596 118.127542,131 94,131 Z" id="Path" fill="#6ac6f2" />
+            <path d="M37,161 L70.440215,137.422975 L44.7,101 L25.8,101 C15.2,101 5.8,106.1 0,114 C3.70425746,122.954433 8.7232584,131.454433 15.0570028,139.5 C21.3907473,147.545567 28.7050796,154.712234 37,161 Z" id="Path" strokeOpacity={0} stroke="#3A5E77" strokeWidth="2.5" fill="#FFFFFF" strokeLinecap="round" />
+            <path d="M154,161 L187.440215,137.422975 L161.7,101 L142.8,101 C132.2,101 122.8,106.1 117,114 C120.704257,122.954433 125.723258,131.454433 132.057003,139.5 C138.390747,147.545567 145.70508,154.712234 154,161 Z" id="Path" strokeOpacity={0} stroke="#3A5E77" strokeWidth="2.5" fill="#FFFFFF" strokeLinecap="round" transform="translate(152.220108, 131.000000) scale(-1, 1) translate(-152.220108, -131.000000) " />
+            <path d="M94,131 C69.8724584,131 48.6950092,142.965596 37,160.860092 C53.4362292,171.639908 73.0332717,178 94,178 C114.966728,178 134.563771,171.747706 151,160.860092 C139.304991,142.965596 118.127542,131 94,131 Z" id="Path" fill="#FFFFFF" />
             <path d="M143.479791,101 L94,131 L143.479791,101 Z" id="Path-2" stroke="#000000" strokeWidth={2} fill="#000000" strokeLinejoin="round" />
             <path d="M156,134 C157.678041,137.587889 158.933339,141.087889 159.765895,144.5 C160.598451,147.912111 161.051154,151.412111 161.124004,155" id="Path-2" stroke="#000000" fill="#000000" />
             <path d="M29,134 C30.678041,137.587889 31.9333394,141.087889 32.7658951,144.5 C33.5984508,147.912111 34.0511538,151.412111 34.1240042,155" id="Path-2" stroke="#000000" fill="#000000" transform="translate(31.562002, 144.500000) scale(-1, 1) translate(-31.562002, -144.500000) " />
@@ -125,10 +99,11 @@ function LunchLady() {
           <path clipPath="url(#mouthMask)" className="tooth" style={{fill: '#FFFFFF'}} d="M106,97h-4c-1.1,0-2-0.9-2-2v-2h8v2C108,96.1,107.1,97,106,97z" />
           <path className="mouthOutline" fill="none" stroke="#3A5E77" strokeWidth="2.5" strokeLinejoin="round" d="M100.2,101c-0.4,0-1.4,0-1.8,0c-2.7-0.3-5.3-1.1-8-2.5c-0.7-0.3-0.9-1.2-0.6-1.8 c0.2-0.5,0.7-0.7,1.2-0.7c0.2,0,0.5,0.1,0.6,0.2c3,1.5,5.8,2.3,8.6,2.3s5.7-0.7,8.6-2.3c0.2-0.1,0.4-0.2,0.6-0.2 c0.5,0,1,0.3,1.2,0.7c0.4,0.7,0.1,1.5-0.6,1.9c-2.6,1.4-5.3,2.2-7.9,2.5C101.7,101,100.5,101,100.2,101z" />
         </g>
-        <path className="nose" style={{display: 'none'}} d="M97.7 79.9h4.7c1.9 0 3 2.2 1.9 3.7l-2.3 3.3c-.9 1.3-2.9 1.3-3.8 0l-2.3-3.3c-1.3-1.6-.2-3.7 1.8-3.7z" fill="#3a5e77" />
+        <path className="nose" d="M97.7 79.9h4.7c1.9 0 3 2.2 1.9 3.7l-2.3 3.3c-.9 1.3-2.9 1.3-3.8 0l-2.3-3.3c-1.3-1.6-.2-3.7 1.8-3.7z" fill="#3a5e77" />
         <path className="chin" style={{display: 'none'}} d="M84.1 121.6c2.7 2.9 6.1 5.4 9.8 7.5l.9-4.5c2.9 2.5 6.3 4.8 10.2 6.5 0-1.9-.1-3.9-.2-5.8 3 1.2 6.2 2 9.7 2.5-.3-2.1-.7-4.1-1.2-6.1" fill="none" stroke="#3a5e77" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
   );
 }
-export default LunchLady;
+
+export default BaldGuy;
