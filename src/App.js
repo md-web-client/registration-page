@@ -221,24 +221,13 @@ class App extends Component {
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
         <link rel="stylesheet" href="css/style.css" />
-        <form>
+        <form autoComplete="off">
           <h1 style={{marginLeft: '95px', marginBottom: '30px', fontSize: '30px'}}>Lunch Lady</h1>
           <div className="svgContainer">
             <LunchLady/>
           </div>
-          <div className="inputGroup inputGroup1">
-            <label htmlFor="email1">Email</label>
-            <input type="text" id="email" className="email" maxLength={256} />
-            <p className="helper helper1">email@domain.com</p>
-            <span className="indicator" />
-          </div>
-          <div className="inputGroup inputGroup2">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" className="password" />
-          </div>
-          <div className="inputGroup inputGroup3">
-            <button id="login">Log in</button>
-          </div>	
+          <Fields/>
+          
         </form>
       </div>
   )};
