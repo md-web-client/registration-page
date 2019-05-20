@@ -1,34 +1,36 @@
 import React, { Fragment, useState } from 'react';
-const Input1 = () => {
+
+const Input = ({index, name, placeholder}) => {
   const [ fieldText, setFieldText ] = useState("")
   function handleChange(event) {
-    let { name, value } = event.currentTarget;
+    let { value } = event.currentTarget;
     setFieldText(value.trim())
   }
   return (
-  <div className={"inputGroup inputGroup"+'1'}>
-    <label htmlFor={"email"+"1"}>Email</label>
-    { fieldText === '' ?
-    <input onChange={handleChange} value="&nbsp;" type="text" name="email" id="email" className="email" maxLength={256} />
-    : <input onChange={handleChange} value={ fieldText } type="text" id="email" className="email" maxLength={256} />
+  <div className={"inputGroup inputGroup"+index}>
+    <label style={{textTransform: 'capitalize'}} htmlFor={name+index}>{name}</label>
+    {
+      fieldText === '' && placeholder ?
+      <input onChange={handleChange} value="&nbsp;" type={name} name={name} id={name} className={name} maxLength={256} />
+      : <input onChange={handleChange} value={ fieldText } type={placeholder ? "text" : name } name={name} id={name} className={name} maxLength={256} />
     }
-    <p className={"helper helper"+"1"}>email@domain.com</p>
-    <span className="indicator" />
+    { placeholder ?
+        <p className={"helper helper"+index}>{placeholder}</p>
+        : undefined
+    }
   </div>
   )
 }
+// index, email, Email, email@domain.com
 
 function Fields() {
   return (
     <Fragment>
-      <Input1/>
-      <div className="inputGroup inputGroup2">
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" className="password" />
-      </div>
+      <Input index={1} name={"email"} placeholder={"email@domain.com"}/>
+      <Input index={2} name={"password"} placholder={""}/>
       <div className="inputGroup inputGroup3">
         <button id="login">Log in</button>
-      </div>	
+      </div>
     </Fragment>
   );
 }
