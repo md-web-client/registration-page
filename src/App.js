@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Fields from './Fields.js'
 import { LunchLadyHairNet, BaldGuy, NurseHat } from './Svg'
-
 import { repositionSvgJavascript } from 'try-out-a-package-to-be-removed-later'
-
 
 export class LunchLadyLogin extends Component {
   componentDidMount(){
