@@ -3,10 +3,11 @@ import './App.css';
 import Fields from '../Fields/Fields.js'
 import { LunchLadyHairNet, BaldGuy, NurseHat } from '../../Svg'
 import { repositionSvgJavascript } from 'try-out-a-package-to-be-removed-later'
+import { repositionAndPeek } from './func'
 
 export class LunchLadyLogin extends Component {
   componentDidMount(){
-    repositionSvgJavascript()
+    repositionAndPeek()
   }
 
   render(){
@@ -26,7 +27,7 @@ export class LunchLadyLogin extends Component {
 }
 export class MaleNurseLogin extends Component {
   componentDidMount(){
-    repositionSvgJavascript()
+    repositionAndPeek()
   }
 
   render(){
@@ -46,7 +47,7 @@ export class MaleNurseLogin extends Component {
 }
 export class BaldGuyLogin extends Component {
   componentDidMount(){
-    repositionSvgJavascript()
+    repositionAndPeek()
   }
 
   render(){
