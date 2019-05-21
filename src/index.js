@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './style.css';
+import './css/index.css';
+import './css/style.css';
 
-import { LunchLadyLogin, MaleNurseLogin, BaldGuyLogin } from './App';
+import { LunchLadyLogin, MaleNurseLogin, BaldGuyLogin } from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<LunchLadyLogin />, document.getElementById('root'));
