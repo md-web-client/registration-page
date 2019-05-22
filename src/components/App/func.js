@@ -257,9 +257,9 @@ function resetFace() {
 
 function startBlinking(delay) {
 	if(delay) {
-		delay = getRandomInt(delay);
+		delay = getRandomInt(delay)/10;
 	} else {
-		delay = 1;
+		delay = 1/6;
 	}
 	blinking = TweenMax.to([eyeL, eyeR], .1, {delay: delay, scaleY: 0, yoyo: true, repeat: 1, transformOrigin: "center center", onComplete: function() {
 		startBlinking(12);
