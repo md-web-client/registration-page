@@ -7,9 +7,16 @@ const Input = ({index, name, placeholder}) => {
     setFieldText(value.trim())
   }
   const capName = name.charAt(0).toUpperCase() + name.slice(1)
+
   return (
   <div className={"inputGroup inputGroup"+index}>
-    <label id={'login'+ capName +'Label'} htmlFor={'login'+ capName}>{capName}</label>
+    <label id={'login'+ capName +'Label'} htmlFor={'login'+ capName}>
+      {capName}
+      {name === 'password' && (
+      <span id="showPasswordToggle" htmlFor="showPasswordCheck">
+        <input id="showPasswordCheck" type="checkbox" />
+      </span> )}
+    </label>
     {
       fieldText === '' && placeholder ?
       <input onChange={handleChange} value="&nbsp;" type={name} name={name} id={'login'+capName} className={name} maxLength={256} />
@@ -30,12 +37,9 @@ function Fields() {
       <Input index={1} name={"email"} placeholder={"email@domain.com"}/>
       <Input index={2} name={"password"} placholder={""}/>
       <div className="inputGroup inputGroup3">
-        <button id="login">Log in</button>
+        <button style={{ height: '100px' }} id="login">Log in</button>
       </div>
-      <label id="showPasswordToggle" htmlFor="showPasswordCheck">Show
-        <input id="showPasswordCheck" type="checkbox" />
-        <div className="indicator" />
-      </label>
+
     </Fragment>
   );
 }
