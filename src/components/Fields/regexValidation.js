@@ -4,9 +4,10 @@ const emailIsValid = (email) => {
 }
 
 const passwordValidation = (pass) => {
-  const bool = new RegExp('^.*(?=.{8,})(?=.*[a-zA-Z0-9])(?=.*[!#$%&?"]).*$').test(pass)
+  const bool = new RegExp('^(?=.*[a-zA-Z0-9])(?=.*[!#$%&?"])[a-zA-Z0-9!#$%&?"]{8,16}$').test(pass)
   return bool
 }
+
 
 const nameField = (name) => {
   // first and last name = new RegExp('^[A-Z][a-z]*\\s[A-Z][a-z]*$')
@@ -30,6 +31,29 @@ function telephoneNumber(numberStr){
 
 
  const nameMessage='Valid name must start with a capital letter and be within the range of 3 to 30 characters.'
- const passwordMessage='Password must contain 8 characters and at least one number, one letter and one unique character such as !#$%&?'
+ const passwordMessage='Password must be between 8 and 24 characters and at least one number, one letter and one unique character such as !#$%&?'
+ const telephoneMessage='Valid phone numbers must contain 7 to 10 numbers.'
+ const emailMessage='Incorrect email. Correct format example@domain.com.'
+module.exports = {
+  validation: {
+    firstName: nameField,
+    lastName: nameField,
+    /*npiNumber: none,*/
+    telephoneNumber: telephoneNumber,
+    businessAddress: businessAddress,
+    email: emailIsValid,
+    password: passwordValidation
+  },
+  emailIsValid, passwordValidation, nameField, telephoneNumber, businessAddress, nameMessage, passwordMessage
 
-module.exports = { emailIsValid, passwordValidation, nameField, telephoneNumber, businessAddress, nameMessage, passwordMessage }
+  /*firstNameMessage: nameMessage,
+  lastNameMessage: nameMessage,
+  npiNumberMessage: "",
+  businessAddressMessage: "",
+  telephoneNumberMessage: telephoneMessage,
+  emailAddressMessage: emailMessage,
+  passwordMessage: ""
+  */
+}
+
+
