@@ -1,19 +1,24 @@
 import {
   validation,
-  nameMessage, passwordMessage } from './regexValidation'
+  failureMessage
+} from './regexValidation'
+
+const print = (object) => {
+  const { email, firstName, lastName, telephoneNumber, password, businessAddress, npiNumber } = object
+  const foo =  Object.Keys(object).length
+  console.log(
+    'length: ', foo,  "\n\n",
+    'email:', email, "\n\n", 'firstName:', firstName, "\n\n", 'lastName:', lastName,"\n\n",
+    'telephoneNumber:', telephoneNumber, "\n\n", 'password:', password, "\n\n",
+    'businessAddress:', businessAddress, "\n\n", 'npiNumber:', npiNumber
+  )
+};
 
 
-// import {
-//   nameField,
-//   telephoneNumber,
-//   businessAddress,
-//   emailIsValid,
-//   passwordValidation,
-//
-//   nameMessage, passwordMessage } from './regexValidation'
+ print( validation );
+ print( failureMessage);
 
 test('sanity', () => {
-  console.log({passwordMessage})
   expect(true).toBe(true)
 });
 
@@ -47,14 +52,18 @@ test('email field denies incorrect address', () => {
 });
 
 test('name field allows incorrect name', () => {
-  expect(validation.firstName('Michael'))
+  expect(validation.firstName('Testfirstname'))
+    .toBe(true)
+  expect(validation.lastName('Testlastname'))
     .toBe(true)
 });
 
 test('name field denies incorrect name', () => {
+  expect(validation.firstName('TestFirstName'))
+    .toBe(false)
   expect(validation.firstName('Michael Gregory Dimmitt'))
     .toBe(false)
-  expect(validation.firstName('MMchael'))
+  expect(validation.lastName('TTestfirstname'))
     .toBe(false)
 });
 
@@ -91,7 +100,7 @@ test('password field allows correct password', () => {
   "$Password1234567",
   "#a$$1234567PWord"
   ].map(x => {
-    console.log({x}, validation.password(x))
+    // console.log({x}, validation.password(x))
     expect( validation.password(x) )
       .toBe(true);
   })
@@ -102,7 +111,7 @@ test('password field allows correct password', () => {
   "BadPass",
   "$Password123456789"
   ].map(x => {
-    console.log({x}, validation.password(x))
+    // console.log({x}, validation.password(x))
     expect( validation.password(x))
       .toBe(false);
   })

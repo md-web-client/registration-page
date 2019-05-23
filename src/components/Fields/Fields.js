@@ -36,9 +36,34 @@ class Fields extends Component {
     super(props)
     this.state = {
       fields: {
-        email: "",
+        firstName: "",
+        lastName: "",
+        npiNumber: "",
+        businessAddress: "",
+        telephoneNumber: "",
+        emailAddress: "",
+        password: ""
+      },
+      validationFunctions: {
+        firstName: "",
+        lastName: "",
+        npiNumber: "",
+        businessAddress: "",
+        telephoneNumber: "",
+        emailAddress: "",
+        password: ""
+      },
+      validationErrorMessages: {
+        firstName: "",
+        lastName: "",
+        npiNumber: "",
+        businessAddress: "",
+        telephoneNumber: "",
+        emailAddress: "",
         password: ""
       }
+
+
     };
     this.handleChange = this.handleChange.bind(this);
   };
