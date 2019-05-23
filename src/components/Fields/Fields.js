@@ -5,13 +5,18 @@ const Input = ({index, name, placeholder, fields, handleChange}) => {
 
   return (
     <div className={"inputGroup inputGroup"+index}>
+      { name !== 'password' ? (
       <label id={'login'+ capName +'Label'} htmlFor={'login'+ capName}>
         {capName}
-        {name === 'password' && (
-        <span id="showPasswordToggle" htmlFor="showPasswordCheck">
-          <input id="showPasswordCheck" type="checkbox" />
-        </span> )}
       </label>
+      ) : (
+        <label style={{display: 'flex', justifyContent: 'space-between'}}htmlFor="loginPassword" id="loginPasswordLabel">Password
+          <span id="showPasswordToggle" htmlFor="showPasswordCheck">Show Pass
+            <input id="showPasswordCheck" type="checkbox" />
+          </span>
+        </label>
+        )
+      }
       {
         fields[name] === '' && placeholder ?
         <input onChange={handleChange} value="&nbsp;" type={name} name={name} id={'login'+capName} className={name} maxLength={256} />
