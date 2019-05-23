@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Fields from '../Fields/Fields.js'
-import { LunchLadyHairNet, BaldGuy, BaldGuyB, NurseHat } from '../../Svg'
-import { peekAndAnimateAvatar } from 'try-out-a-package-to-be-removed-later'
+import Fields from '../Fields/Fields.js';
+import { LunchLadyHairNet, BaldGuy, BaldGuyB, NurseHat } from '../../Svg';
+import { peekAndAnimateAvatar } from 'try-out-a-package-to-be-removed-later';
 
 export class LunchLadyLogin extends Component {
   componentDidMount(){
-    peekAndAnimateAvatar()
+    peekAndAnimateAvatar();
   }
 
   render(){
@@ -26,7 +26,7 @@ export class LunchLadyLogin extends Component {
 }
 export class MaleNurseLogin extends Component {
   componentDidMount(){
-    peekAndAnimateAvatar()
+    peekAndAnimateAvatar();
   }
 
   render(){
