@@ -3,21 +3,6 @@ import {
   failureMessage
 } from './regexValidation'
 
-const print = (object) => {
-  const { email, firstName, lastName, telephoneNumber, password, businessAddress, npiNumber } = object
-  const foo =  Object.Keys(object).length
-  console.log(
-    'length: ', foo,  "\n\n",
-    'email:', email, "\n\n", 'firstName:', firstName, "\n\n", 'lastName:', lastName,"\n\n",
-    'telephoneNumber:', telephoneNumber, "\n\n", 'password:', password, "\n\n",
-    'businessAddress:', businessAddress, "\n\n", 'npiNumber:', npiNumber
-  )
-};
-
-
- print( validation );
- print( failureMessage);
-
 test('sanity', () => {
   expect(true).toBe(true)
 });

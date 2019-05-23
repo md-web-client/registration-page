@@ -8,7 +8,6 @@ const passwordValidation = (pass) => {
   return bool
 }
 
-
 const nameField = (name) => {
   // first and last name = new RegExp('^[A-Z][a-z]*\\s[A-Z][a-z]*$')
   // const fullNameMessage='Valid Full Name Syntax: "Michael Gregory Dimmitt" or "Michael Dimmitt"'
@@ -29,7 +28,6 @@ function telephoneNumber(numberStr){
 //
 // }
 
-
  const nameMessage='Valid name must start with a capital letter and be within the range of 3 to 30 characters.'
  const passwordMessage='Password must be between 8 and 24 characters and at least one number, one letter and one unique character such as !#$%&?'
  const telephoneMessage='Valid phone numbers must contain 7 to 10 numbers.'
@@ -38,7 +36,7 @@ module.exports = {
   validation: {
     firstName: nameField,
     lastName: nameField,
-    /*npiNumber: none,*/
+    npiNumber: '',
     telephoneNumber: telephoneNumber,
     businessAddress: businessAddress,
     email: emailIsValid,
@@ -47,21 +45,12 @@ module.exports = {
   failureMessage: {
     firstName: nameMessage,
     lastName: nameMessage,
-    /*npiNumber: none,*/
+    npiNumber: '',
     telephoneNumber: telephoneMessage,
-    /*businessAddress: none,*/
+    businessAddress: '',
     email: emailMessage,
     password: passwordMessage,
   }
-
-  /*firstNameMessage: nameMessage,
-  lastNameMessage: nameMessage,
-  npiNumberMessage: "",
-  businessAddressMessage: "",
-  telephoneNumberMessage: telephoneMessage,
-  emailAddressMessage: emailMessage,
-  passwordMessage: ""
-  */
 }
 
 
