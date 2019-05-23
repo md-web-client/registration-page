@@ -1,6 +1,16 @@
 import {
-  emailIsValid, passwordValidation, nameField, telephoneNumber,
-  businessAddress, nameMessage, passwordMessage } from './regexValidation'
+  validation,
+  nameMessage, passwordMessage } from './regexValidation'
+
+
+// import {
+//   nameField,
+//   telephoneNumber,
+//   businessAddress,
+//   emailIsValid,
+//   passwordValidation,
+//
+//   nameMessage, passwordMessage } from './regexValidation'
 
 test('sanity', () => {
   console.log({passwordMessage})
@@ -27,24 +37,24 @@ test('sanity', () => {
 
 test('email field allows correct address', () => {
 
-  expect(emailIsValid('email@address.com'))
+  expect(validation.email('email@address.com'))
     .toBe(true)
 });
 
 test('email field denies incorrect address', () => {
-  expect(emailIsValid('test@test@emailadress.com'))
+  expect(validation.email('test@test@emailadress.com'))
     .toBe(false)
 });
 
 test('name field allows incorrect name', () => {
-  expect(nameField('Michael'))
+  expect(validation.firstName('Michael'))
     .toBe(true)
 });
 
 test('name field denies incorrect name', () => {
-  expect(nameField('Michael Gregory Dimmitt'))
+  expect(validation.firstName('Michael Gregory Dimmitt'))
     .toBe(false)
-  expect(nameField('MMchael'))
+  expect(validation.firstName('MMchael'))
     .toBe(false)
 });
 
@@ -61,15 +71,39 @@ test('telephone field allows correct name', () => {
   "+3(123) 12312123",
   "075-63546725",
   "904-555-5555",
-  "555-4444",
+  "555-4444"
   ].map(x => {
-    expect(telephoneNumber(x))
+    expect(validation.telephoneNumber(x))
       .toBe(true);
     return x;
   })
 
 })
 test('telephone field denies incorrect name', () => {
-  expect( telephoneNumber("555-444"))
+  expect( validation.telephoneNumber("555-444"))
     .toBe(false)
+})
+
+
+test('password field allows correct password', () => {
+  ["Password1$",
+  "Password1234567#",
+  "$Password1234567",
+  "#a$$1234567PWord"
+  ].map(x => {
+    console.log({x}, validation.password(x))
+    expect( validation.password(x) )
+      .toBe(true);
+  })
+})
+
+test('password field allows correct password', () => {
+  [
+  "BadPass",
+  "$Password123456789"
+  ].map(x => {
+    console.log({x}, validation.password(x))
+    expect( validation.password(x))
+      .toBe(false);
+  })
 })
