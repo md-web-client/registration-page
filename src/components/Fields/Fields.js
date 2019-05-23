@@ -1,8 +1,23 @@
 import React, { Fragment, Component } from 'react';
+import {
+  validation,
+  failureMessage
+} from './regexValidation'
+
+
+export const defaultFields = {
+  firstName: '',
+  lastName: '',
+  npiNumber: '',
+  telephoneNumber: '',
+  businessAddress: '',
+  email: '',
+  password: ''
+};
 
 const Input = ({index, name, placeholder, fields, handleChange}) => {
   const capName = name.charAt(0).toUpperCase() + name.slice(1);
-  
+
   return (
     <div className={'inputGroup inputGroup'+index}>
       { name !== 'password' ? (
@@ -35,33 +50,9 @@ class Fields extends Component {
   constructor(props){
     super(props)
     this.state = {
-      fields: {
-        firstName: '',
-        lastName: '',
-        npiNumber: '',
-        telephoneNumber: '',
-        businessAddress: '',
-        email: '',
-        password: ''
-      },
-      validationFunctions: {
-        firstName: '',
-        lastName: '',
-        npiNumber: '',
-        telephoneNumber: '',
-        businessAddress: '',
-        email: '',
-        password: ''
-      },
-      validationErrorMessages: {
-        firstName: '',
-        lastName: '',
-        npiNumber: '',
-        telephoneNumber: '',
-        businessAddress: '',
-        email: '',
-        password: ''
-      }
+      fields: defaultFields,
+      validation: validation,
+      failureMessage: failureMessage
     };
     this.handleChange = this.handleChange.bind(this);
   };
