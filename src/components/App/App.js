@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Fields from '../Fields/Fields.js'
-import { LunchLadyHairNet, BaldGuy, NurseHat } from '../../Svg'
+import { LunchLadyHairNet, BaldGuy, BaldGuyB, NurseHat } from '../../Svg'
 import { peekAndAnimateAvatar } from 'try-out-a-package-to-be-removed-later'
 
 export class LunchLadyLogin extends Component {
@@ -17,7 +17,7 @@ export class LunchLadyLogin extends Component {
         <form autoComplete="off">
           <div className="svgContainer">
             <LunchLadyHairNet/>
-            <BaldGuy/>
+            <BaldGuyB/>
           </div>
           <Fields/>
         </form>
