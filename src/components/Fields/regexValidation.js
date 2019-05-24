@@ -36,7 +36,7 @@ module.exports = {
   validation: {
     firstName: nameField,
     lastName: nameField,
-    npiNumber: '',
+    npiNumber: nameField,
     telephoneNumber: telephoneNumber,
     businessAddress: businessAddress,
     email: emailIsValid,
@@ -45,9 +45,9 @@ module.exports = {
   failureMessage: {
     firstName: nameMessage,
     lastName: nameMessage,
-    npiNumber: '',
+    npiNumber: nameMessage,
     telephoneNumber: telephoneMessage,
-    businessAddress: '',
+    businessAddress: telephoneMessage,
     email: emailMessage,
     password: passwordMessage,
   }

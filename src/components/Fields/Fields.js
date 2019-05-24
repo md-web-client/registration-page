@@ -15,7 +15,17 @@ export const defaultFields = {
   password: ''
 };
 
-const Input = ({index, name, placeholder, fields, handleChange}) => {
+export const errorIndicators = {
+  firstName: true,
+  lastName: true,
+  npiNumber: true,
+  telephoneNumber: true,
+  businessAddress: true,
+  email: true,
+  password: true
+};
+
+const Input = ({index, name, placeholder, fields, working, handleChange}) => {
   const capName = name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
@@ -41,6 +51,9 @@ const Input = ({index, name, placeholder, fields, handleChange}) => {
           <p className={'helper helper'+index}>{placeholder}</p>
           : undefined
       }
+      { working[name] == false &&
+        <p style={{marginLeft: '10px'}}>Error: whoa that is a lot of data</p>
+      }
     </div>
   );
 }
@@ -51,7 +64,9 @@ class Fields extends Component {
     super(props)
     this.state = {
       fields: defaultFields,
-      validation: validation,
+      working: errorIndicators,
+      validationFunctions: validation,
+      validationFunctions: validation,
       failureMessage: failureMessage
     };
     this.handleChange = this.handleChange.bind(this);
@@ -63,16 +78,42 @@ class Fields extends Component {
     fields[name] = value.trim();
     this.setState({fields})
   };
+  
+  validateAndSend(){
+    const { fields, validationFunctions, working } = this.state
+    const objectKeys = Object.keys(fields);
+    
+    objectKeys.map( (key) => {
+        const value = fields[key];
+        const func = validationFunctions[key];
+        console.log({key, func, value})
+        const passFail = func(value)
+        console.log({passFail, working})
+        working[key] = passFail
+      }
+    )
+    this.setState({ working })
+  }
 
   render(){
-    const { fields } = this.state;
+    const print = (object) => {
+      const { email, firstName, lastName, telephoneNumber, password, businessAddress, npiNumber } = object
 
+      console.log(
+        'length: ',  "\n\n",
+        'email:', email, "\n\n", 'firstName:', firstName, "\n\n", 'lastName:', lastName,"\n\n",
+        'telephoneNumber:', telephoneNumber, "\n\n", 'password:', password, "\n\n",
+        'businessAddress:', businessAddress, "\n\n", 'npiNumber:', npiNumber
+      )
+    };
+    const { fields, working } = this.state;
+    print(working)
     return (
       <Fragment>
-        <Input index={1} fields={fields} handleChange={this.handleChange} name={'email'} placeholder={'email@domain.com'} />
-        <Input index={2} fields={fields} handleChange={this.handleChange} name={'password'} placholder={''} />
+        <Input name={'email'} index={1} placeholder={'email@domain.com'} fields={fields} working={working} handleChange={this.handleChange}/>
+        <Input name={'password'} index={2} placholder={''} fields={fields} working={working} handleChange={this.handleChange}/>
         <div className='inputGroup inputGroup3'>
-          <button style={{ height: '100px' }} id='login' >Log in</button>
+          <button onClick={ () => this.validateAndSend() } style={{ height: '100px' }} id='login' >Log in</button>
         </div>
       </Fragment>
     );

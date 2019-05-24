@@ -34,13 +34,13 @@ export class MaleNurseLogin extends Component {
     <div>
         <meta charSet="UTF-8" />
         <title>Animated SVG Avatar - For Login Page</title>
-        <form autoComplete="off">
+        <div  className="form" >
           <div className="svgContainer">
             <NurseHat/>
             <BaldGuy/>
           </div>
           <Fields/>
-        </form>
+        </div>
       </div>
   )};
 }
