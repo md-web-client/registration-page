@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { MaleNurseLogin, /* LunchLadyLogin, BaldGuyLogin */ } from '../App';
+import { MaleNurseLogin, Users, /* LunchLadyLogin, BaldGuyLogin */ } from '../Pages';
 import { navigate } from '../../helpers'
 
 export default class Router extends Component {
@@ -10,10 +10,14 @@ export default class Router extends Component {
     <BrowserRouter>
       <Switch>
         <Route exact path={['/', '/register']} 
-          component={MaleNurseLogin}
+          component={routeProps => (
+            <MaleNurseLogin {...routeProps} />
+          )}
         />
         <Route exact path="/users" 
-          component={MaleNurseLogin}
+          component={routeProps => (
+            <Users {...routeProps} />
+          )}
         />
         <Route
           component={routeProps => (
