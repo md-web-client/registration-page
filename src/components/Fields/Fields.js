@@ -25,7 +25,7 @@ export const errorIndicators = {
   password: true
 };
 
-const Input = ({index, name, placeholder, fields, working, handleChange}) => {
+const Input = ({index, name, placeholder, helper:{fields, working, failureMessage}, handleChange}) => {
   const capName = name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
@@ -52,7 +52,7 @@ const Input = ({index, name, placeholder, fields, working, handleChange}) => {
           : undefined
       }
       { working[name] == false &&
-        <p style={{marginLeft: '10px'}}>Error: whoa that is a lot of data</p>
+        <p style={{marginLeft: '10px', color: 'crimson'}}>{failureMessage[name]}</p>
       }
     </div>
   );
@@ -106,12 +106,18 @@ class Fields extends Component {
         'businessAddress:', businessAddress, "\n\n", 'npiNumber:', npiNumber
       )
     };
-    const { fields, working } = this.state;
+    const { fields, working, failureMessage} = this.state;
+    const helper = { fields, working, failureMessage}
     print(working)
     return (
       <Fragment>
-        <Input name={'email'} index={1} placeholder={'email@domain.com'} fields={fields} working={working} handleChange={this.handleChange}/>
-        <Input name={'password'} index={2} placholder={''} fields={fields} working={working} handleChange={this.handleChange}/>
+        <Input name={'email'} index={1} placeholder={'email@domain.com'} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'password'} index={2} placholder={''} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'firstName'} index={1} placeholder={''} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'lastName'} index={1} placeholder={''} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'npiNumber'} index={1} placeholder={''} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'telephoneNumber'} index={1} placeholder={''} helper={helper} handleChange={this.handleChange}/>
+        <Input name={'businessAddress'} index={1} placeholder={''} helper={helper} working={working} handleChange={this.handleChange}/>
         <div className='inputGroup inputGroup3'>
           <button onClick={ () => this.validateAndSend() } style={{ height: '100px' }} id='login' >Log in</button>
         </div>
