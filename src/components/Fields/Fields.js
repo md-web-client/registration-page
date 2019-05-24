@@ -3,6 +3,7 @@ import {
   validation,
   failureMessage
 } from './regexValidation'
+import { print } from '../../helpers.js'
 
 
 export const defaultFields = {
@@ -86,9 +87,7 @@ class Fields extends Component {
     objectKeys.map( (key) => {
         const value = fields[key];
         const func = validationFunctions[key];
-        console.log({key, func, value})
         const passFail = func(value)
-        console.log({passFail, working})
         working[key] = passFail
       }
     )
@@ -96,19 +95,10 @@ class Fields extends Component {
   }
 
   render(){
-    const print = (object) => {
-      const { email, firstName, lastName, telephoneNumber, password, businessAddress, npiNumber } = object
-
-      console.log(
-        'length: ',  "\n\n",
-        'email:', email, "\n\n", 'firstName:', firstName, "\n\n", 'lastName:', lastName,"\n\n",
-        'telephoneNumber:', telephoneNumber, "\n\n", 'password:', password, "\n\n",
-        'businessAddress:', businessAddress, "\n\n", 'npiNumber:', npiNumber
-      )
-    };
     const { fields, working, failureMessage} = this.state;
     const helper = { fields, working, failureMessage}
-    print(working)
+
+    // print(working)
     return (
       <Fragment>
         <Input name={'email'} index={1} placeholder={'email@domain.com'} helper={helper} handleChange={this.handleChange}/>
