@@ -3,7 +3,7 @@ import {
   validation,
   failureMessage
 } from './regexValidation'
-import { print } from '../../helpers.js'
+import { print } from '../../helpers'
 
 
 export const defaultFields = {

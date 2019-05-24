@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { MaleNurseLogin, /* LunchLadyLogin, BaldGuyLogin */ } from '../App';
+import { navigate } from '../../helpers'
 
-export default class LunchLadyLogin extends Component {
+export default class Router extends Component {
   
   render(){
   return (
-    <Router>
+    <BrowserRouter>
       <Switch>
         <Route exact path={['/', '/register']} 
           component={MaleNurseLogin}
@@ -14,11 +15,15 @@ export default class LunchLadyLogin extends Component {
         <Route exact path="/users" 
           component={MaleNurseLogin}
         />
-        <Route>
-          404
-        </Route>
+        <Route
+          component={routeProps => (
+            <section>
+              <a onClick={() => navigate(routeProps.history, '/')} >404 return to home page</a>
+            </section>
+          )}
+        />
       </Switch>
-    </Router>
+    </BrowserRouter>
   )};
 }
 
