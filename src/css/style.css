@@ -11,6 +11,9 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
+a:hover {
+  cursor: pointer;
+}
 .form {
   margin: 0 auto; 
   width: 96%;
