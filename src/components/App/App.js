@@ -14,13 +14,13 @@ export class LunchLadyLogin extends Component {
     <div>
         <meta charSet="UTF-8" />
         <title>Animated SVG Avatar - For Login Page</title>
-        <form autoComplete="off">
+        <section  className="form" >
           <div className="svgContainer">
             <LunchLadyHairNet/>
             <BaldGuyB/>
           </div>
           <Fields/>
-        </form>
+        </section>
       </div>
   )};
 }
@@ -34,13 +34,13 @@ export class MaleNurseLogin extends Component {
     <div>
         <meta charSet="UTF-8" />
         <title>Animated SVG Avatar - For Login Page</title>
-        <form autoComplete="off">
+        <section  className="form" >
           <div className="svgContainer">
             <NurseHat/>
             <BaldGuy/>
           </div>
           <Fields/>
-        </form>
+        </section>
       </div>
   )};
 }
@@ -54,12 +54,12 @@ export class BaldGuyLogin extends Component {
     <div>
         <meta charSet="UTF-8" />
         <title>Animated SVG Avatar - For Login Page</title>
-        <form autoComplete="off">
+        <section  className="form" >
           <div className="svgContainer">
             <BaldGuy/>
           </div>
           <Fields/>
-        </form>
+        </section>
       </div>
   )};
 }

@@ -1,5 +1,5 @@
 import { validation, failureMessage } from './regexValidation'
-import { defaultFields } from './Fields'
+import { defaultFields, errorIndicators } from './Fields'
 
 const evaluate = (object) => {
   const
@@ -23,8 +23,11 @@ describe(`
 
 `, function(){
 
-  test('check validation functions arrive with correct keynames', () => {
+  test('check default fields arrive with correct keynames', () => {
     evaluate( defaultFields );
+  });
+  test('check error indicators arrive with correct keynames', () => {
+    evaluate( errorIndicators );
   });
   test('check validation functions arrive with correct keynames', () => {
     evaluate( validation );
