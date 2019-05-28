@@ -16,7 +16,7 @@ const nameField = (name) => {
 }
 
 const  businessAddress = (addr) => {
-  return new RegExp('BUSINESS ADDRESS:\s*STREET\s1:\s*(.*)\s*STREET\s2:\s*(.*)')
+  return new RegExp('BUSINESS ADDRESS:\s*STREET\s1:\s*(.*)\s*STREET\s2:\s*(.*)').test(addr)
 }
 
 function telephoneNumber(numberStr){
@@ -38,7 +38,7 @@ module.exports = {
     lastName: nameField,
     npiNumber: nameField,
     telephoneNumber: telephoneNumber,
-    businessAddress: businessAddress,
+    businessAddress: telephoneNumber,
     email: emailIsValid,
     password: passwordValidation
   },
