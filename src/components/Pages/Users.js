@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-
-const getUsers = () => {
-  return fetch('http://3.19.120.4/mongo/users/')
-    .then(function(response) { return response.json(); })
-    .then(function(response) { return (console.log('Get', 'fetch', response), response) })
-}
+import { getUsers } from '../../helpers/networkRequest.js'
 
 const User = ({user}) => {
   console.log({user})
