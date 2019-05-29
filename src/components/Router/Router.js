@@ -25,7 +25,7 @@ export default class Router extends Component {
         <Route
           component={routeProps => (
             <section>
-              <a onClick={() => navigate(routeProps.history, '/')} >404 return to home page</a>
+              <div role='button' onClick={() => navigate(routeProps.history, '/')} >404 return to home page</div>
             </section>
           )}
         />
