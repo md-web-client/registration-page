@@ -3,6 +3,5 @@ export const navigate = (history, navString = '/') => {
   history.push(navString);
 };
 export const replace = (history, navString = '/') => {
-
   history.replace(navString);
 };

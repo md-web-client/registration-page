@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from '../../helpers/networkRequest.js'
+import { navigate } from '../../helpers/navigation.js'
 
 const User = ({user}) => {
   console.log({user})

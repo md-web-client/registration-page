@@ -2,9 +2,9 @@ import React, { Fragment, Component } from 'react';
 import {
   validation,
   failureMessage
-} from './regexValidation'
+} from '../../helpers/regexValidation.js'
 import { databaseInsertion } from '../../helpers/networkRequest.js'
-// import { print } from '../../helpers'
+import { navigate } from '../../helpers/navigation.js'
 
 export const defaultFields = {
   firstName: '',
@@ -98,8 +98,10 @@ class Fields extends Component {
       return true;
     }
     const readyToSubmit = check(Object.values(working));
-    console.log({readyToSubmit, working})
     readyToSubmit && databaseInsertion(fields)
+    .then(x => {
+      navigate(this.props.history, '/users')
+    } )
     this.setState({ working })
   }
 

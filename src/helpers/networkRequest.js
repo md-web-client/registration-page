@@ -15,7 +15,7 @@ export const databaseInsertion = (queryParameters) => {
     };
     return options;
   }
-  fetch('http://3.19.120.4/mongo/insert/', postOptions(queryParameters) )
+  return fetch('http://3.19.120.4/mongo/insert/', postOptions(queryParameters) )
     .then(response => response.text() )
     .then(response => { console.log('Post', 'fetch', response) })
     .catch(function (error)   { console.log({error}) })

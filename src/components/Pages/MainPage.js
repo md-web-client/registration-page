@@ -10,6 +10,7 @@ export class LunchLadyLogin extends Component {
   }
 
   render(){
+  const { history } = this.props;
   return (
     <div>
         <meta charSet="UTF-8" />
@@ -19,7 +20,7 @@ export class LunchLadyLogin extends Component {
             <LunchLadyHairNet/>
             <BaldGuyB/>
           </div>
-          <Fields/>
+          <Fields history={history}/>
         </section>
       </div>
   )};
@@ -30,6 +31,7 @@ export class MaleNurseLogin extends Component {
   }
 
   render(){
+  const { history } = this.props;
   return (
     <div>
         <meta charSet="UTF-8" />
@@ -39,7 +41,7 @@ export class MaleNurseLogin extends Component {
             <NurseHat/>
             <BaldGuy/>
           </div>
-          <Fields/>
+          <Fields history={history}/>
         </section>
       </div>
   )};
@@ -50,6 +52,7 @@ export class BaldGuyLogin extends Component {
   }
 
   render(){
+  const { history } = this.props;
   return (
     <div>
         <meta charSet="UTF-8" />
@@ -58,9 +61,8 @@ export class BaldGuyLogin extends Component {
           <div className="svgContainer">
             <BaldGuy/>
           </div>
-          <Fields/>
+          <Fields history={history}/>
         </section>
       </div>
   )};
 }
-
