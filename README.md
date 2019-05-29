@@ -1,3 +1,6 @@
+See the final result: [here](http://nurse-registration.s3-website.us-east-2.amazonaws.com)
+http://nurse-registration.s3-website.us-east-2.amazonaws.com
+
 ## Installation Instructions
 
 ```
