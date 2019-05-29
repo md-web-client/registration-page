@@ -20,13 +20,13 @@ const  businessAddress = (addr) => {
   return true
 }
 
-function telephoneNumber(numberStr){
+const telephoneNumber = (numberStr) => {
   const justNumbers = numberStr.replace( /[\D]+/g, '')
   const bool = new RegExp('[0-9]{7,10}$').test(justNumbers)
   return bool
 }
 
-function npiNumber(numberStr){
+const npiNumber = (numberStr) => {
   const justNumbers = numberStr.replace( /[\D]+/g, '')
   const bool = new RegExp('[0-9]{10}$').test(justNumbers)
   return bool;
