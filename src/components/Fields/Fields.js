@@ -2,35 +2,9 @@ import React, { Fragment, Component } from 'react';
 import {
   validation,
   failureMessage
-} from './regexValidation'
-import { print } from '../../helpers'
-
-const databaseInsertion = () => {
-  const postOptions = (data = {}) => {
-    const options = {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, cors, *same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-          'Content-Type': 'application/json',
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: 'follow', // manual, *follow, error
-      referrer: 'no-referrer', // no-referrer, *client
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
-    };
-    return options;
-  }
-  const params = {
-    firstName: 'michael', lastName: 'dimmitt', npiNumber: '82138', businessAddress: '2312 baymeadows way, jacksonville, fl',
-    telephoneNumber: '9022006567', emailAddress: 'michaelgdimmitt@gmail.com'
-  };
-  fetch('http://localhost:6789/postgres/insert', postOptions(params) )
-    .then(response => response.text() )
-    .then(response => { console.log('Post', 'fetch', response) })
-    .catch(function (error)   { console.log({error}) })
-}
+} from '../../helpers/regexValidation.js'
+import { databaseInsertion } from '../../helpers/networkRequest.js'
+import { navigate } from '../../helpers/navigation.js'
 
 export const defaultFields = {
   firstName: '',
@@ -78,7 +52,7 @@ const Input = ({index, name, placeholder, helper:{fields, working, failureMessag
           <p className={'helper helper'+index}>{placeholder}</p>
           : undefined
       }
-      { working[name] == false &&
+      { working[name] === false &&
         <p style={{marginLeft: '10px', color: 'crimson'}}>{failureMessage[name]}</p>
       }
     </div>
@@ -92,7 +66,6 @@ class Fields extends Component {
     this.state = {
       fields: defaultFields,
       working: errorIndicators,
-      validationFunctions: validation,
       validationFunctions: validation,
       failureMessage: failureMessage
     };
@@ -115,6 +88,7 @@ class Fields extends Component {
         const func = validationFunctions[key];
         const passFail = func(value)
         working[key] = passFail
+        return passFail;
       }
     )
     const check = (myBooleanArray) => {
@@ -124,8 +98,10 @@ class Fields extends Component {
       return true;
     }
     const readyToSubmit = check(Object.values(working));
-    console.log({readyToSubmit, working})
-    readyToSubmit && databaseInsertion()
+    readyToSubmit && databaseInsertion(fields)
+    .then(x => {
+      navigate(this.props.history, '/users')
+    } )
     this.setState({ working })
   }
 
