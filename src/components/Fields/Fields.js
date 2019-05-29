@@ -3,7 +3,7 @@ import {
   validation,
   failureMessage
 } from './regexValidation'
-import { print } from '../../helpers'
+// import { print } from '../../helpers'
 
 const databaseInsertion = () => {
   const postOptions = (data = {}) => {
@@ -26,7 +26,7 @@ const databaseInsertion = () => {
     firstName: 'michael', lastName: 'dimmitt', npiNumber: '82138', businessAddress: '2312 baymeadows way, jacksonville, fl',
     telephoneNumber: '9022006567', emailAddress: 'michaelgdimmitt@gmail.com'
   };
-  fetch('http://localhost:6789/postgres/insert', postOptions(params) )
+  fetch('http://3.19.120.4/mongo/insert/', postOptions(params) )
     .then(response => response.text() )
     .then(response => { console.log('Post', 'fetch', response) })
     .catch(function (error)   { console.log({error}) })
@@ -78,7 +78,7 @@ const Input = ({index, name, placeholder, helper:{fields, working, failureMessag
           <p className={'helper helper'+index}>{placeholder}</p>
           : undefined
       }
-      { working[name] == false &&
+      { working[name] === false &&
         <p style={{marginLeft: '10px', color: 'crimson'}}>{failureMessage[name]}</p>
       }
     </div>
@@ -92,7 +92,6 @@ class Fields extends Component {
     this.state = {
       fields: defaultFields,
       working: errorIndicators,
-      validationFunctions: validation,
       validationFunctions: validation,
       failureMessage: failureMessage
     };
@@ -115,6 +114,7 @@ class Fields extends Component {
         const func = validationFunctions[key];
         const passFail = func(value)
         working[key] = passFail
+        return passFail;
       }
     )
     const check = (myBooleanArray) => {
