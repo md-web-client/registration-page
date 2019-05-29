@@ -16,13 +16,15 @@ export const databaseInsertion = (queryParameters) => {
     return options;
   }
   return fetch('http://3.19.120.4/mongo/insert/', postOptions(queryParameters) )
-    .then(response => response.text() )
+    .then(response => response.text())
     .then(response => { console.log('Post', 'fetch', response) })
     .catch(function (error)   { console.log({error}) })
 }
 
 export const getUsers = () => {
   return fetch('http://3.19.120.4/mongo/users/')
-    .then(function(response) { return response.json(); })
+    .then(function(response) {
+      return response.json();
+    })
     .then(function(response) { return (console.log('Get', 'fetch', response), response) })
 }

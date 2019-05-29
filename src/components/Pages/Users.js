@@ -2,15 +2,37 @@ import React, { Component } from 'react';
 import { getUsers } from '../../helpers/networkRequest.js'
 import { navigate } from '../../helpers/navigation.js'
 
-const User = ({user}) => {
-  console.log({user})
+const User = ({user, index}) => {
+  console.log({user}, Object.values(user), Object.keys(user))
   return(
-  <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+  <div >
     <br/>
-    <br/>
-    {
-      Object.values(user).map(item => <span style={{marginLeft: '15px'}}>{item}</span>)
+    { index === 0 ?
+
+    <div style={{display: 'grid', gridAutoFlow: 'column', gridTemplateColumns: 'repeat(auto-fit, 214px)' }}>
+
+      {
+      Object.keys(user).map(
+        (item, index) => (index > 0)
+        ? <div style={{paddingLeft: '20px'}}>{item}</div>
+        : undefined
+      )
+      }
+
+    </div>
+    : undefined
     }
+    <br/>
+    <div style={{display: 'grid', gridAutoFlow: 'column', gridTemplateColumns: 'repeat(auto-fit, 214px)' }}>
+    {
+      Object.values(user).map(
+        (item, index) => (index > 0)
+        ? <span style={{marginLeft: '20px'}}>{item}</span>
+        : undefined
+      )
+    }
+    </div>
+
   </div>
 )}
 const ErrorMessage = ({message}) => (
@@ -34,12 +56,13 @@ export default class Users extends Component {
     console.log({userInfo, message})
     return (
       <span>
-        Users
-        <br/>
-        <br/>
+        <section style={{paddingLeft: '20px'}}>
+          <span>Welcome to Users page, </span>
+          <div style={{color: '#007bff' }}role='button' onClick={() => navigate(this.props.history, '/')} >click here to return to registration page</div>
+        </section>
         {
-          userInfo.length > 0 ? userInfo.map(user =>
-            <User user={user}/>
+          userInfo.length > 0 ? userInfo.map( (user, index) =>
+            <User index={index} user={user}/>
           )
           : message ? <ErrorMessage message={message}/>
           : ''
