@@ -3,28 +3,6 @@ import {
   failureMessage
 } from './regexValidation'
 
-test('sanity', () => {
-  expect(true).toBe(true)
-});
-
-//test('business address', () => {
-//
-//  const testAddr=`BUSINESS ADDRESS:
-//  STREET 1:       107 N PENNSYLVANIA ST
-//  STREET 2:       STE 600
-//  CITY:           INDIANAPOLIS
-//  STATE:          IN
-//  ZIP:            46204
-//  BUSINESS PHONE:     3172619000
-//
-//  MAIL ADDRESS:
-//  STREET 1:       107 N PENNSYLVANIA ST
-//  STREET 2:       STE 600
-//  CITY:           INDIANAPOLIS
-//  STATE:          IN
-//  ZIP:            46204`
-//})
-
 test('email field allows correct address', () => {
 
   expect(validation.email('email@address.com'))
@@ -101,3 +79,26 @@ test('password field allows correct password', () => {
       .toBe(false);
   })
 })
+
+
+test('sanity', () => {
+  expect(true).toBe(true)
+});
+
+//test('business address', () => {
+//
+//  const testAddr=`BUSINESS ADDRESS:
+//  STREET 1:       107 N PENNSYLVANIA ST
+//  STREET 2:       STE 600
+//  CITY:           INDIANAPOLIS
+//  STATE:          IN
+//  ZIP:            46204
+//  BUSINESS PHONE:     3172619000
+//
+//  MAIL ADDRESS:
+//  STREET 1:       107 N PENNSYLVANIA ST
+//  STREET 2:       STE 600
+//  CITY:           INDIANAPOLIS
+//  STATE:          IN
+//  ZIP:            46204`
+//})
